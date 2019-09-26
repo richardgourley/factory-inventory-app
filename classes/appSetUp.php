@@ -4,7 +4,7 @@ require_once( 'dbConnection.php' );
 class AppSetUp extends DbConnection{
     private function check_users_exist(){
         $conn = $this->create_connection();
-        $query = "SELECT name FROM my_test.test_table";
+        $query = "SELECT username FROM factory_inventory.users";
         $handle = $conn->prepare( $query );
         $handle->execute();
         $results = $handle->fetchAll( PDO::FETCH_NUM );
@@ -17,12 +17,12 @@ class AppSetUp extends DbConnection{
 
         $conn = null;
 
-        if( !in_array( 'Deborah' , $found_names ) ){
-            $this->insert_user( 'Deborah' );
+        if( !in_array( 'mainadmin' , $found_names ) ){
+            $this->insert_user( array( 'mainadmin', 'mA99fBBnDfeT4', '1' ) );
         }
 
-        if( !in_array( 'Steven' , $found_names ) ){
-            $this->insert_user( 'Steven' );
+        if( !in_array( 'user1' , $found_names ) ){
+            $this->insert_user( 'user1', 'cBUoo958uFgT7', '2' );
         }
     }
     
