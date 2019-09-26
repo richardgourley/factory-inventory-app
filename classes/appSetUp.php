@@ -27,7 +27,7 @@ class AppSetUp extends DbConnection{
     }
     
     private function insert_user( $user_details ){
-        
+        //$user_details array used to create a new user
     }
 
     public function app_set_up(){
