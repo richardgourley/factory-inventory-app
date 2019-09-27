@@ -18,11 +18,19 @@ class AppSetUp extends DbConnection{
         $conn = null;
 
         if( !in_array( 'mainadmin' , $found_names ) ){
-            $this->insert_user( array( 'mainadmin', 'mA99fBBnDfeT4', '1' ) );
+            $this->insert_user( array( 
+                'username' => 'mainadmin', 
+                'pword' => 'mA99fBBnDfeT4', 
+                'priveliges_id' => '1' ) 
+            );
         }
 
         if( !in_array( 'user1' , $found_names ) ){
-            $this->insert_user( 'user1', 'cBUoo958uFgT7', '2' );
+            $this->insert_user( array( 
+                'username' => 'user1', 
+                'pword' => 'cBUoo958uFgT7', 
+                'priveliges_id' => '2' ) 
+            );
         }
     }
     
