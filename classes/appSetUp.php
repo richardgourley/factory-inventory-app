@@ -50,6 +50,6 @@ class AppSetUp extends DbConnection{
     }
 
     public function app_set_up(){
-        
+        $this->check_users_exist();
     }
 }
