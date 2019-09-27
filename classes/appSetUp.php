@@ -35,7 +35,18 @@ class AppSetUp extends DbConnection{
     }
     
     private function insert_user( $user_details ){
-        //$user_details array used to create a new user
+        $conn = $this->create_connection();
+
+        $query = "INSERT INTO factory_inventory.users(username, pword, priveliges_id) VALUES(?, ?, ?)";
+        $handle = $conn->prepare( $query );
+
+        $handle->bindValue( 1, $user_details['username'] );
+        $handle->bindValue( 2, $user_details['pword'] );
+        $handle->bindValue( 3, $user_details['priveliges_id'] );
+        
+        $result = $handle->execute();
+
+        $conn = null;
     }
 
     public function app_set_up(){
