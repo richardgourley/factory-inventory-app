@@ -37,11 +37,13 @@ class AppSetUp extends DbConnection{
     private function insert_user( $user_details ){
         $conn = $this->create_connection();
 
+        $hashed_pword = password_hash( $user_details['pword'], PASSWORD_DEFAULT );
+
         $query = "INSERT INTO factory_inventory.users(username, pword, priveliges_id) VALUES(?, ?, ?)";
         $handle = $conn->prepare( $query );
 
         $handle->bindValue( 1, $user_details['username'] );
-        $handle->bindValue( 2, $user_details['pword'] );
+        $handle->bindValue( 2, $hashed_pword );
         $handle->bindValue( 3, $user_details['priveliges_id'] );
         
         $result = $handle->execute();
