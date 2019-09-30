@@ -9,9 +9,11 @@ TRUE
 TRUE
 5. Table named priveliges has 'master' (id=1) and 'view_only' (id=2)   
 TRUE
+
+(SEE APPSETUP CLASS FOR HOW THESE USERS ARE SET UP)
 7. Table named users has a user 'mainadmin' with a hashed password and priveliges_id set to 1 (master) 
 TRUE
-8. Table named users has a user a user named 'user1' with a hashed password and priveliges_id set to  2 (view) 
+8. Table named users has a user named 'user1' with a hashed password and priveliges_id set to  2 (view) 
 TRUE
 
 
@@ -19,13 +21,16 @@ DB CLASS
 1. PDO class connects to the database and can return an array of the users table and the products table
 TRUE
 
-LOGIN CLASS, LOGIN TEMPLATE AND LOGOUT TEMPLATE
-1. 
-
-MENUS
-1. Menu only displays 'home' and 'login' when a user is not logged in.
+LOGIN, LOGOUT
+1. Login page template displays a username and password field for logging in
 FALSE
-2. Menu displays full menu below when the user main admin is logged in with these pages
+2. When logging in as 'mainadmin' or 'user1', if the password is entered incorrectly, a message appears saying 'username or password is incorrect.'
+FALSE
+3. When attempting to login, if a character that is NOT a letter or number is entered into the username field, an error message appears
+FALSE
+
+MENUS AFTER LOG IN
+1. After sucsessfully logging in as 'mainadmin', the user is redirected to the index page and sees the full menu:
     Home
     View all products
     Add new product
@@ -33,7 +38,13 @@ FALSE
     Search
     Logout
 FALSE
-3. Menu displays only 'View all products' and 'Search' templates when 'user1' is logged in.
+2. After sucsessfully logging in as 'user1', only the following view and search pages are available.
+    View all products
+    Search
+FALSE
+
+MENUS BEFORE LOG IN
+1. Menu only displays 'home' and 'login' when a user is not logged in.
 FALSE
 
 TEMPLATES
