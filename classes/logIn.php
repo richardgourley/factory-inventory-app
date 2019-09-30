@@ -17,4 +17,10 @@ class LogIn extends DbConnection{
 
         return $errors;
     }
+
+    private function is_blank( $field_name, $field_input ){
+        if( $field_input  == '' ){
+            return 'The ' . $field_name . ' field must not be empty.';
+        }
+    }
 }
