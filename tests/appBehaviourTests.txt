@@ -23,7 +23,7 @@ TRUE
 
 LOGIN, LOGOUT
 1. Login page template displays a username and password field for logging in
-FALSE
+TRUE
 2. When logging in as 'mainadmin' or 'user1', if the password is entered incorrectly, a message appears saying 'username or password is incorrect.'
 FALSE
 3. When attempting to login, if a character that is NOT a letter or number is entered into the username field, an error message appears
