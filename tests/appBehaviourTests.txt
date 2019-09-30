@@ -1,0 +1,54 @@
+DATABASE
+1. Database named 'factory_inventory' exists
+TRUE
+2. Table named user with the fields 'id', 'username', 'password', 'priveliges' exists
+TRUE
+3. Table named product with the fields 'id', 'product_name', 'product_number', 'description', 'cost_price', 'quantity_in_stock' exists
+TRUE
+4. Table named priveliges with the fields 'id', 'privelige_name' exists
+TRUE
+5. Table named priveliges has 'master' (id=1) and 'view_only' (id=2)   
+TRUE
+7. Table named users has a user 'mainadmin' with a hashed password and priveliges_id set to 1 (master) 
+TRUE
+8. Table named users has a user a user named 'user1' with a hashed password and priveliges_id set to  2 (view) 
+TRUE
+
+
+DB CLASS
+1. PDO class connects to the database and can return an array of the users table and the products table
+TRUE
+
+LOGIN CLASS, LOGIN TEMPLATE AND LOGOUT TEMPLATE
+1. 
+
+MENUS
+1. Menu only displays 'home' and 'login' when a user is not logged in.
+FALSE
+2. Menu displays full menu below when the user main admin is logged in with these pages
+    Home
+    View all products
+    Add new product
+    Edit a product
+    Search
+    Logout
+FALSE
+3. Menu displays only 'View all products' and 'Search' templates when 'user1' is logged in.
+FALSE
+
+TEMPLATES
+1. ViewAll.php displays all of the products in a grid format
+FALSE
+2. AddNew.php displays a form that sucsessfully adds a new product to the database which is displayed in viewAll.php
+FALSE
+3. The form in AddNew.php returns an error message if details are entered incorrectly AND html is entered into the fields.
+FALSE
+4. Edit.php displays all of the products in an editable form.  When a product is updated, the changes are displayed correctly on the viewAll.php page
+FALSE
+5. The form on edit.php returns error messages if fields are filled in incorrectly AND html is entered into the fields
+FALSE
+6. Search.php displays a form that allows the user to find a product by entering either 'product_name' or 'product_id' and correctly returns results.
+FALSE
+7. The form on search.php returns an error message if the field is not filled in correctly AND html is entered into the fields
+FALSE
+
