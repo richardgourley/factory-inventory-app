@@ -55,23 +55,4 @@ class AppSetUp extends DbConnection{
         $this->check_users_exist();
     }
 
-    public function pdo_test(){
-        $conn = $this->create_connection();
-
-        $query1 = "SELECT * FROM factory_inventory.users";
-        $handle1 = $conn->prepare( $query1 );
-        $handle1->execute();
-        $users = $handle1->fetchAll( PDO::FETCH_ASSOC );
-
-        var_dump( $users );
-
-        $query2 = "SELECT * FROM factory_inventory.products";
-        $handle2 = $conn->prepare( $query2 );
-        $handle2->execute();
-        $products = $handle2->fetchAll( PDO::FETCH_ASSOC );
-
-        var_dump( $products );
-
-        $conn = null;
-    }
 }
