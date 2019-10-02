@@ -10,10 +10,10 @@ body{
 }
 
 .button{
-	border-radius:1px;
-	border:1px solid navy;
-	background-color: lightblue;
+	border-radius:6px;
+	padding:12px;
+	border:2px solid lightblue;
+	background-color: navy;
 	color:white;
+	cursor: pointer;
 }
-
-
