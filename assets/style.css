@@ -9,6 +9,11 @@ body{
 	color:red;
 }
 
-
+.button{
+	border-radius:1px;
+	border:1px solid navy;
+	background-color: lightblue;
+	color:white;
+}
 
 
