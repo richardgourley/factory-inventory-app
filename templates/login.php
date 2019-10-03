@@ -1,7 +1,7 @@
 <?php require_once( 'header.php' ); ?>
 
 <?php if( isset( $_SESSION['ERROR_MESSAGE'] ) ): ?>
-<small class="error-message"><?php echo htmlentities( $_SESSION['ERROR_MESSAGE'] ) ?></small>
+<small class="error-message"><?php echo htmlentities( $_SESSION['ERROR_MESSAGE'], ENT_QUOTES ) ?></small>
 <?php endif; ?>
 
 <form method="post" 
