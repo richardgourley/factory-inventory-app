@@ -10,7 +10,7 @@ TRUE
 5. Table named priveliges has 'master' (id=1) and 'view_only' (id=2)   
 TRUE
 
-(SEE APPSETUP CLASS FOR HOW THESE USERS ARE SET UP)
+(SEE APPSETUP CLASS FOR HOW THE USERS PASSWORDS ARE HASHED)
 7. Table named users has a user 'mainadmin' with a hashed password and priveliges_id set to 1 (master) 
 TRUE
 8. Table named users has a user named 'user1' with a hashed password and priveliges_id set to  2 (view) 
@@ -41,14 +41,18 @@ TRUE
     View all products
     Search
     Log Out
-FALSE
+TRUE
 
 MENUS BEFORE LOG IN
 1. Menu only displays 'home' and 'login' when a user is not logged in.
-FALSE
+TRUE
 
 MENUS AFTER LOG OUT
-1. After logging out the user is shown the menu displaying 'home' and 'login'
+1. After logging out the user is shown the menu displaying 'home' and 'login' and a 'you have logged out message'.
+TRUE
+
+PAGE RESTRICTIONS
+1. A user logged in with priveliges_id = 2, CAN NOT see or access 'Add new product' or 'Edit a product' by adding the address directly in the browser. User is re-directed to the home page.
 TRUE
 
 TEMPLATES
