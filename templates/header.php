@@ -10,12 +10,7 @@
 </head>
 <body>
     <h1>Factory parts inventory app</h1>
-    <?php
-    
-    session_start();
-    
-    ?>
-    
+    <?php session_start(); ?>
 
     <?php if( isset( $_SESSION['USERNAME'] ) ): ?>
     <h3>Welcome back <?php echo htmlentities( $_SESSION['USERNAME'], ENT_QUOTES ); ?></h3>
