@@ -57,7 +57,9 @@ TRUE
 
 TEMPLATES
 1. ViewAll.php displays all of the products in a grid format
-FALSE
+TRUE
+1b. ViewAll.php displays a message requesting the user to log in instead of displaying the products if they are not logged in
+TRUE
 2. AddNew.php displays a form that sucsessfully adds a new product to the database which is displayed in viewAll.php
 FALSE
 3. The form in AddNew.php returns an error message if details are entered incorrectly AND html is entered into the fields.
