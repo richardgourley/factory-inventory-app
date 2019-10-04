@@ -17,3 +17,20 @@ body{
 	color:white;
 	cursor: pointer;
 }
+
+.products-grid{
+  display:grid;
+  display: grid; 
+  grid-template-columns: 50% 50%; 
+  grid-row-gap: 20px; 
+  grid-column-gap: 20px; 
+  background-color: #fcfcfc;
+  padding:18px;
+}
+
+.product{
+	border:1px solid grey;
+	padding:10px;
+}
+
+
