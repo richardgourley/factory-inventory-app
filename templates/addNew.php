@@ -1,4 +1,5 @@
 <?php require_once( 'header.php' ); ?>
+<?php require_once( $_SERVER['DOCUMENT_ROOT'] . '/factoryInventoryApp/classes/Model.php'  ); ?>
 
 <?php
 if( isset( $_SESSION['PRIVELIGES'] ) && $_SESSION['PRIVELIGES'] == '2' ){
@@ -11,6 +12,16 @@ if( empty( $_SESSION ) || !isset( $_SESSION['PRIVELIGES'] ) ){
 
 ?>
 
+<?php 
+if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['product_number'] ) ){
+    $model = new Model();
+    $product_number = $model->check_input( $_POST['product_number'] );
+    $product_name = $model->check_input( $_POST['product_name'] );
+    $description = $model->check_input( $_POST['description'] );
+    $cost_price = $model->check_input( $_POST['cost_price'] );
+    $quantity_in_stock = $model->check_input( $_POST['quantity_in_stock'] );
+}
+?>
 
 <div>
     <h3>Add a product</h3>
