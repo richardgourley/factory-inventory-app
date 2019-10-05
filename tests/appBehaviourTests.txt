@@ -58,16 +58,16 @@ TRUE
 TEMPLATES
 1. ViewAll.php displays all of the products in a grid format
 TRUE
-1b. ViewAll.php displays a message requesting the user to log in instead of displaying the products if they are not logged in
+1b. ViewAll.php displays a message requesting the user to log in instead of displaying the products if they are not logged in.
 TRUE
-2. AddNew.php displays a form that sucsessfully adds a new product to the database which is displayed in viewAll.php
-FALSE
+2. AddNew.php displays a form that succsessfully adds a new product to the database which is updated on the viewAll.php page.
+TRUE
 3. The form in AddNew.php returns an error message if details are entered incorrectly AND html is entered into the fields.
-FALSE
-4. Edit.php displays all of the products in an editable form.  When a product is updated, the changes are displayed correctly on the viewAll.php page
-FALSE
+TRUE
+4. Edit.php displays all of the products in an editable form.  When a product is updated, the changes are displayed immediately on the same page.
+TRUE
 5. The form on edit.php returns error messages if fields are filled in incorrectly AND html is entered into the fields
-FALSE
+TRUE
 6. Search.php displays a form that allows the user to find a product by entering either 'product_name' or 'product_id' and correctly returns results.
 FALSE
 7. The form on search.php returns an error message if the field is not filled in correctly AND html is entered into the fields
