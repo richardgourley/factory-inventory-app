@@ -11,8 +11,6 @@ $model = new Model();
 $results = $model->view_all();
 ?>
 
-<?php var_dump($_SESSION); ?>
-
 <div class="products-grid">
 <?php foreach ( $results as $product ): ?>
 <div class="product">
