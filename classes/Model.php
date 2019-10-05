@@ -13,4 +13,8 @@ class Model extends DbConnection{
 
         return $results;
     }
+
+    public function add_new(){
+    	$conn = $this->create_connection();
+    }
 }
