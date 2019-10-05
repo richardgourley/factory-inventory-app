@@ -10,11 +10,12 @@ class Model extends DbConnection{
         $handler = $conn->prepare( $query );
         $handler->execute();
         $results = $handler->fetchAll( PDO::FETCH_ASSOC );
-
+ 
+        $conn = null;
         return $results;
     }
 
-    public function add_new(){
+    public function add_product(){
     	$conn = $this->create_connection();
     }
 }
