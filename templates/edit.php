@@ -42,7 +42,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['product_number'] ) ){
 
     if( strlen( $errors) > 0 ){
         echo '<h4>Please review these errors in your form</h4>';
-        echo '<p>' . $errors . '</p>';
+        echo '<p class="error-message">' . $errors . '</p>';
     }else{
         echo $model->update_product( $post ); //returns 'product added ' or error message
         //refresh products
