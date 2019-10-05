@@ -1,5 +1,6 @@
 <?php require_once( 'header.php' ); ?>
 <?php require_once( $_SERVER['DOCUMENT_ROOT'] . '/factoryInventoryApp/classes/Model.php'  ); ?>
+<?php require_once( $_SERVER['DOCUMENT_ROOT'] . '/factoryInventoryApp/classes/DataValidationSanitization.php'  ); ?>
 
 <?php
 if( isset( $_SESSION['PRIVELIGES'] ) && $_SESSION['PRIVELIGES'] == '2' ){
@@ -15,11 +16,28 @@ if( empty( $_SESSION ) || !isset( $_SESSION['PRIVELIGES'] ) ){
 <?php 
 if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['product_number'] ) ){
     $model = new Model();
-    $product_number = $model->check_input( $_POST['product_number'] );
-    $product_name = $model->check_input( $_POST['product_name'] );
-    $description = $model->check_input( $_POST['description'] );
-    $cost_price = $model->check_input( $_POST['cost_price'] );
-    $quantity_in_stock = $model->check_input( $_POST['quantity_in_stock'] );
+    $input_checks = new DataValidationSanitization();
+    $errors = '';
+    $post = filter_var_array( $_POST, FILTER_SANITIZE_STRING );
+
+    //blank fields
+    $errors .= $input_checks->is_blank_field( $post );
+    
+    //data validation
+
+    $errors .= $input_checks->is_whole_number( $post['product_number'], 'Product Number' );
+    $errors .= $input_checks->is_a_string( $post['product_name'], 'Product Name' );
+    $errors .= $input_checks->is_a_string( $post['description'], 'Description' );
+    $errors .= $input_checks->is_price( $post['cost_price'], 'Cost Price' );
+    $errors .= $input_checks->is_whole_number( $post['quantity_in_stock'], 'Quanitiy in Stock' );
+
+
+    if( strlen( $errors) > 0 ){
+        echo '<h4>Please review these errors in your form</h4>';
+        echo '<p>' . $errors . '</p>';
+    }else{
+        $model->add_product( $post );
+    }
 }
 ?>
 
