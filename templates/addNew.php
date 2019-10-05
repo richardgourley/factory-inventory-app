@@ -36,7 +36,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['product_number'] ) ){
         echo '<h4>Please review these errors in your form</h4>';
         echo '<p>' . $errors . '</p>';
     }else{
-        $model->add_product( $post );
+        echo $model->add_product( $post ); //returns 'product added ' or error message
     }
 }
 ?>
