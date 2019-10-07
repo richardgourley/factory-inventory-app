@@ -11,11 +11,8 @@ $model = new Model();
 $results = $model->view_all();
 ?>
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> a51f64c4c2ade8eb41a71100c51624c60027ad22
 <div class="products-grid">
 <?php foreach ( $results as $product ): ?>
 <div class="product">
