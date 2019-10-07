@@ -1,5 +1,5 @@
 <?php require_once( 'header.php' ); ?>
-<?php require_once( $_SERVER['DOCUMENT_ROOT'] . '/factoryInventoryApp/classes/Model.php' ); ?>
+<?php require_once( ROOT_PATH . 'classes/Model.php' ); ?>
 
 <?php if( !isset( $_SESSION['USERNAME'] ) || !isset( $_SESSION['PRIVELIGES'] ) ): ?>
 <h3>Please log in</h3>
@@ -10,7 +10,6 @@
 $model = new Model(); 
 $results = $model->view_all();
 ?>
-
 
 
 <div class="products-grid">
