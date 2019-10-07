@@ -53,7 +53,7 @@ TRUE
 
 PAGE RESTRICTIONS
 1. No user can see the 'View All', 'Search page', 'Edit' or 'Add New' pages unless they are logged in.
-FALSE
+TRUE
 2. A user logged in with priveliges_id = 2, CAN NOT see or access 'Add new product' or 'Edit a product' by adding the address directly in the browser. User is re-directed to the home page.
 TRUE
 
