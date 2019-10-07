@@ -1,10 +1,11 @@
 <?php require_once( 'header.php' ); ?>
 <?php require_once( ROOT_PATH . 'classes/Model.php' ); ?>
 
-<?php if( !isset( $_SESSION['USERNAME'] ) || !isset( $_SESSION['PRIVELIGES'] ) ): ?>
-<h3>Please log in</h3>
-<?php endif; ?>
-<?php //exit(); ?>
+<?php
+if( empty( $_SESSION ) || !isset( $_SESSION['PRIVELIGES'] ) ){
+    header( "Location:" . ROOT_PATH . '/factoryInventoryApp/index.php' );
+}
+?>
 
 <?php 
 $model = new Model(); 
