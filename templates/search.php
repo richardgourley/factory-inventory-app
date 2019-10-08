@@ -9,12 +9,14 @@ if( empty( $_SESSION ) || !isset( $_SESSION['PRIVELIGES'] ) ){
 ?>
 
 <?php
+$model = new Model();
+$results;
+
 if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['search_field'] ) ){
 	$search_field = htmlentities( $_POST['search_field'] );
+	$results = $model->search_products( $search_field );
 }
 
-$model = new Model();
-$model->search_products( $search_field );
 ?>
 
 <div>
