@@ -8,6 +8,10 @@ if( empty( $_SESSION ) || !isset( $_SESSION['PRIVELIGES'] ) ){
 }
 ?>
 
+<?php
+var_dump( $_POST );
+?>
+
 <div>
   <h3>Search</h3>
   <form method="post" action="<?php echo htmlentities( $_SERVER['PHP_SELF'], ENT_QUOTES ) ?>">
