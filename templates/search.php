@@ -10,20 +10,21 @@ if( empty( $_SESSION ) || !isset( $_SESSION['PRIVELIGES'] ) ){
 
 <?php
 $model = new Model();
-$product_exists = false;
+$error_message = '';
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['search_field'] ) ){
 	$search_field = htmlentities( $_POST['search_field'] );
-	$product_exists = $model->product_exists( $search_field ); //boolean returned
+	$product = $model->return_product( $search_field ); 
+	if( empty( $product ) ){
+		$error_message = 'Sorry, no products were found. Please search again.';
+	}
 }
-
-var_dump( $product_exists );
 
 ?>
 
-
-
-
+<?php if( $error_message !== ''): ?>
+<small class="error-message"><?php echo $error_message; ?></small>
+<?php endif; ?>
 
 <div>
   <h3>Search</h3>
@@ -47,6 +48,10 @@ var_dump( $product_exists );
   	</table>
   </form>
 </div>
+
+<?php if( isset( $product ) ): ?>
+
+<?php endif; ?>
 
 <?php require_once( 'footer.php' ); ?>
 
