@@ -9,7 +9,12 @@ if( empty( $_SESSION ) || !isset( $_SESSION['PRIVELIGES'] ) ){
 ?>
 
 <?php
-var_dump( $_POST );
+if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['search_field'] ) ){
+	$search_field = htmlentities( $_POST['search_field'] );
+}
+
+$model = new Model();
+$model->search_products( $search_field );
 ?>
 
 <div>
@@ -22,7 +27,7 @@ var_dump( $_POST );
   	  	  	Enter a product name or a product number:
   	  	  </th>
   	  	  <td>
-  	  	  	<input type="text" name="search-field">
+  	  	  	<input type="text" name="search_field">
   	  	  </td>
   	  	</tr>
   	  	<tr>
