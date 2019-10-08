@@ -64,4 +64,8 @@ class Model extends DbConnection{
         	return 'There was an error, your product was not added. Please try again.';
         }
     }
+
+    public function search_products( $search_field ){
+        
+    }
 }
