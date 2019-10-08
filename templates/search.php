@@ -10,14 +10,20 @@ if( empty( $_SESSION ) || !isset( $_SESSION['PRIVELIGES'] ) ){
 
 <?php
 $model = new Model();
-$results;
+$product_exists = false;
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['search_field'] ) ){
 	$search_field = htmlentities( $_POST['search_field'] );
-	$results = $model->search_products( $search_field );
+	$product_exists = $model->product_exists( $search_field ); //boolean returned
 }
 
+var_dump( $product_exists );
+
 ?>
+
+
+
+
 
 <div>
   <h3>Search</h3>
