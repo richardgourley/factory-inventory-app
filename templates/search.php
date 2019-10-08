@@ -8,5 +8,12 @@ if( empty( $_SESSION ) || !isset( $_SESSION['PRIVELIGES'] ) ){
 }
 ?>
 
+<div>
+  <form>
+  	<table class="form-table">
+  	</table>
+  </form>
+</div>
+
 <?php require_once( 'footer.php' ); ?>
 
