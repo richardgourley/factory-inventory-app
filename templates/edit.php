@@ -54,7 +54,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['product_number'] ) ){
 <?php foreach( $products as $product ): ?>
 <div>
     <h3>Edit a product</h3>
-    <form method="post" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+    <form method="post" action="<?php htmlentities( $_SERVER['PHP_SELF'], ENT_QUOTES ); ?>">
         <table class="form-table">
           <tbody>
             <tr>
