@@ -65,18 +65,22 @@ class Model extends DbConnection{
         }
     }
 
-    public function product_exists( $search_field ){
+    //returns an array with EITHER a product or an error message
+    public function return_product( $search_field ){
         $products = $this->view_all();
+        $product_info = [];
 
         foreach( $products as $product ){
-        	if( $product['product_name'] == $search_field ){
-                return true;  
+        	if( $product['product_name'] === $search_field || $product['product_number'] === $search_field ){
+                $product_info['product_name'] = $product['product_name'];
+				$product_info['product_number'] = $product['product_number'];
+				$product_info['description'] = $product['description'];
+				$product_info['cost_price'] = $product['cost_price'];
+				$product_info['quantity_in_stock'] = $product['quantity_in_stock'];
         	}
-        	if( $product['product_number'] == $search_field ){
-                return true;
-            }
         }
 
-        return false;
+        return $product_info;
+        
     }
 }
