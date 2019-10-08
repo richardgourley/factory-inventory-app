@@ -65,7 +65,18 @@ class Model extends DbConnection{
         }
     }
 
-    public function search_products( $search_field ){
-        
+    public function product_exists( $search_field ){
+        $products = $this->view_all();
+
+        foreach( $products as $product ){
+        	if( $product['product_name'] == $search_field ){
+                return true;  
+        	}
+        	if( $product['product_number'] == $search_field ){
+                return true;
+            }
+        }
+
+        return false;
     }
 }
