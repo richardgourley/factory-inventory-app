@@ -49,8 +49,14 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['search_field'] ) ){
   </form>
 </div>
 
-<?php if( isset( $product ) ): ?>
-
+<?php if( isset( $product['product_name'] ) ): ?>
+<div class="product">
+  <h3><?php echo htmlentities( $product['product_name'], ENT_QUOTES ) ?></h3>    
+  <p>Product Number: <?php echo htmlentities( $product['product_number'], ENT_QUOTES ) ?></p>    
+  <p>Description: <?php echo htmlentities( $product['description'], ENT_QUOTES ) ?></p>    
+  <p>Cost Price: <?php echo htmlentities( $product['cost_price'], ENT_QUOTES ) ?></p>    
+  <p>Quantity In Stock: <?php echo htmlentities( $product['quantity_in_stock'], ENT_QUOTES ) ?></p>    
+</div>
 <?php endif; ?>
 
 <?php require_once( 'footer.php' ); ?>
