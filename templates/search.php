@@ -10,6 +10,7 @@ if( empty( $_SESSION ) || !isset( $_SESSION['PRIVELIGES'] ) ){
 
 <?php
 $model = new Model();
+$input_checks = new DataValidationSanitization();
 $error_message = '';
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['search_field'] ) ){
