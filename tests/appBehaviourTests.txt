@@ -72,7 +72,7 @@ TRUE
 5. The form on edit.php returns error messages if fields are filled in incorrectly AND html is entered into the fields
 TRUE
 6. Search.php displays a form that allows the user to find a product by entering either 'product_name' or 'product_id' and correctly returns results.
-FALSE
+TRUE
 7. The form on search.php returns an error message if the field is not filled in correctly AND html is entered into the fields
 FALSE
 
