@@ -14,7 +14,7 @@ $input_checks = new DataValidationSanitization();
 $error_message = '';
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['search_field'] ) ){
-	$search_field = htmlentities( $_POST['search_field'] );
+	$search_field = htmlentities( $_POST['search_field'], ENT_QUOTES );
 	$product = $model->return_product( $search_field ); 
 	if( empty( $product ) ){
 		$error_message = 'Sorry, no products were found. Please search again.';
