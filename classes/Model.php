@@ -65,22 +65,23 @@ class Model extends DbConnection{
         }
     }
 
-    //returns an array with EITHER a product or an error message
-    public function return_product( $search_field ){
-        $products = $this->view_all();
-        $product_info = [];
-
-        foreach( $products as $product ){
-        	if( $product['product_name'] === $search_field || $product['product_number'] === $search_field ){
-                $product_info['product_name'] = $product['product_name'];
-				$product_info['product_number'] = $product['product_number'];
-				$product_info['description'] = $product['description'];
-				$product_info['cost_price'] = $product['cost_price'];
-				$product_info['quantity_in_stock'] = $product['quantity_in_stock'];
-        	}
+    //returns a single product or a result of empty
+    public function return_product( $search_field, $search_field_type ){
+        
+        $conn = $this->create_connection();
+        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+        if( $search_field_type === 'integer' ){
+            $query = "SELECT * FROM products WHERE product_number = ? LIMIT 1";
+        }else{
+            $query = "SELECT * FROM products WHERE product_name = ? LIMIT 1";
         }
-
-        return $product_info;
+        $handle = $conn->prepare( $query );
+        $handle->bindValue( 1, $search_field );
+        $handle->execute();
+        $result = $handle->fetchAll( PDO::FETCH_ASSOC );
+ 
+        $conn = null;
+        return $result;
         
     }
 }
