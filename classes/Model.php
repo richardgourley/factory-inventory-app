@@ -61,7 +61,7 @@ class Model extends DbConnection{
         if( $result ){
         	return 'Product successfully updated.';
         }else{
-        	return 'There was an error, your product was not added. Please try again.';
+        	return 'There was an error, your product was not updated. Please try again.';
         }
     }
 
