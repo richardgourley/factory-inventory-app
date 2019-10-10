@@ -11,20 +11,22 @@ if( empty( $_SESSION ) || !isset( $_SESSION['PRIVELIGES'] ) ){
 <?php
 $model = new Model();
 $input_checks = new DataValidationSanitization();
-$products_error_message = '';
+$errors = '';
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['search_field'] ) ){
-	$search_field = htmlentities( $_POST['search_field'], ENT_QUOTES );
-	$product = $model->return_product( $search_field ); 
-	if( empty( $product ) ){
-		$products_error_message = 'Sorry, no products were found. Please search again.';
-	}
+    $search_field = htmlentities( $_POST['search_field'], ENT_QUOTES );
+    
+    if( $input_checks->is_blank_field( array( $search_field ) ) ){
+        $errors .= 'Your search field was blank.<br>';
+    }
+
+
 }
 
 ?>
 
-<?php if( $products_error_message !== ''): ?>
-<small class="error-message"><?php echo $products_error_message; ?></small>
+<?php if( $errors !== ''): ?>
+<small class="error-message"><?php echo $errors; ?></small>
 <?php endif; ?>
 
 <div>
