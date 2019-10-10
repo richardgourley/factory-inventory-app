@@ -20,13 +20,13 @@ class DataValidationSanitization{
     */
     public function is_valid_string( $var ){
 
-        $pattern = "/[a-zA-Z]/";
+        $pattern = "/[^a-zA-Z ]/";
 
         if( preg_match( $pattern, $var ) == 1 ){
-            return true;
+            return false;
         }
 
-        return false; 
+        return true; 
         
     }
     
