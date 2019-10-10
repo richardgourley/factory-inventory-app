@@ -20,6 +20,8 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['product_number'] ) ){
     $errors = '';
     $post = filter_var_array( $_POST, FILTER_SANITIZE_STRING );
 
+    var_dump( $post['product_name']);
+
     //blank fields
     if( $input_checks->is_blank_field( $post ) ){
         $errors .= 'One or more of your fields was blank.<br>';
@@ -30,15 +32,22 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['product_number'] ) ){
     if( $input_checks->is_whole_number( $post['product_number'] ) == false ){
         $errors .= 'Your product number field is not a valid number.<br>';
     }
-    $errors .= $input_checks->is_a_string( $post['product_name'], 'Product Name' );
-    $errors .= $input_checks->is_a_string( $post['description'], 'Description' );
-    $errors .= $input_checks->is_price( $post['cost_price'], 'Cost Price' );
-    if( $input_checks->is_whole_number( $post['product_number'] ) == false ){
-        $errors .= 'Your quantity in stock field is not a valid number.<br>';
+    
+    if( $input_checks->is_valid_string( $post['product_name'] ) == false  ){
+        $errors .= 'Your product name field is not valid.<br>';
     }
 
-    //'One or more of your fields was blank.<br>';
+    if( $input_checks->is_valid_string( $post['description'] ) == false ){
+        $errors .= 'Your description field is not valid.<br>';
+    }
 
+    if( $input_checks->is_price( $post['cost_price'] ) == false  ){
+        $errors .= 'Your cost price field should be a whole number or a number with 2 decimal digits.<br>';
+    }
+
+    if( $input_checks->is_whole_number( $post['quantity_in_stock'] ) == false ){
+        $errors .= 'Your quantity in stock field is not a valid number.<br>';
+    }
 
     if( strlen( $errors) > 0 ){
         echo '<h4>Please review these errors in your form</h4>';
