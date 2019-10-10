@@ -29,7 +29,9 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['product_number'] ) ){
     $post = filter_var_array( $_POST, FILTER_SANITIZE_STRING );
 
     //blank fields
-    $errors .= $input_checks->is_blank_field( $post );
+    if( $input_checks->is_blank_field( $post ) ){
+        $errors .= 'One or more of your fields was blank.<br>';
+    }
     
     //data validation
 
