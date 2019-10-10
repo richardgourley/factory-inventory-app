@@ -66,17 +66,16 @@ class Model extends DbConnection{
     }
 
     //returns a single product or a result of empty
-    public function return_product( $search_field, $search_field_type ){
+    public function return_product( $search_field ){
         
         $conn = $this->create_connection();
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-        if( $search_field_type === 'integer' ){
-            $query = "SELECT * FROM products WHERE product_number = ? LIMIT 1";
-        }else{
-            $query = "SELECT * FROM products WHERE product_name = ? LIMIT 1";
-        }
+        
+        $query = "SELECT * FROM products WHERE product_name = ? OR product_number = ? LIMIT 1";
+        
         $handle = $conn->prepare( $query );
         $handle->bindValue( 1, $search_field );
+        $handle->bindValue( 2, $search_field );
         $handle->execute();
         $result = $handle->fetchAll( PDO::FETCH_ASSOC );
  
