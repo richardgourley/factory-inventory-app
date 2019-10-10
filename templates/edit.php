@@ -39,7 +39,9 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['product_number'] ) ){
     $errors .= $input_checks->is_a_string( $post['product_name'], 'Product Name' );
     $errors .= $input_checks->is_a_string( $post['description'], 'Description' );
     $errors .= $input_checks->is_price( $post['cost_price'], 'Cost Price' );
-    $errors .= $input_checks->is_whole_number( $post['quantity_in_stock'], 'Quanitiy in Stock' );
+    if( $input_checks->is_whole_number( $post['product_number'] ) == false ){
+        $errors .= 'Your quantity in stock field is not a valid number.<br>';
+    }
 
 
     if( strlen( $errors) > 0 ){
