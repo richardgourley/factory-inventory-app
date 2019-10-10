@@ -5,16 +5,19 @@ class DataValidationSanitization{
     /**
     * returns error message if number is not a whole number
     */
-    public function is_whole_number( $var, $input_name ){
+    public function is_whole_number( $var ){
 
         if( is_numeric( $var ) && strpos( $var, '.') == false ){
-            return '';
+            return true;
         }
 
-        return 'Your ' . $input_name . ' is not a valid number.<br>';
+        return false;
 
     }
 
+    /**
+    * returns error message if number is not a string
+    */
     public function is_a_string( $var, $input_name ){
         if( is_numeric( $var ) || is_bool( $var ) ){
             return 'Your ' . $input_name . ' is invalid.<br>';
@@ -24,7 +27,10 @@ class DataValidationSanitization{
             return '';
         }
     }
-
+    
+    /**
+    * returns error message if number is not a valid price
+    */
     public function is_price( $var, $input_name ){
         $pattern = "/^\d+(\.\d{2})?$/";
 
@@ -34,7 +40,10 @@ class DataValidationSanitization{
 
         return 'Your ' . $input_name . ' should be a whole number or a number with 2 decimal digits.<br>'; 
     }
-
+    
+    /**
+    * returns error message if any field in array is blank
+    */
     public function is_blank_field( $post ){
         foreach( $post as $field ){
             if( $field === '' ){
@@ -44,4 +53,6 @@ class DataValidationSanitization{
 
         return '';
     }
+
+
 }
