@@ -16,29 +16,31 @@ class DataValidationSanitization{
     }
 
     /**
-    * returns error message if number is not a string
+    * returns false if string contains non alpha characters
     */
-    public function is_a_string( $var, $input_name ){
-        if( is_numeric( $var ) || is_bool( $var ) ){
-            return 'Your ' . $input_name . ' is invalid.<br>';
+    public function is_valid_string( $var ){
+
+        $pattern = "/[a-zA-Z]/";
+
+        if( preg_match( $pattern, $var ) == 1 ){
+            return true;
         }
 
-        if( is_string( $var ) ){
-            return '';
-        }
+        return false; 
+        
     }
     
     /**
-    * returns error message if number is not a valid price
+    * returns false if number is not a valid price
     */
-    public function is_price( $var, $input_name ){
+    public function is_price( $var ){
         $pattern = "/^\d+(\.\d{2})?$/";
 
         if( preg_match( $pattern, $var ) == 1 ){
-            return '';
+            return true;
         }
 
-        return 'Your ' . $input_name . ' should be a whole number or a number with 2 decimal digits.<br>'; 
+        return false; 
     }
     
     /**
