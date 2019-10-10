@@ -47,11 +47,11 @@ class DataValidationSanitization{
     public function is_blank_field( $post ){
         foreach( $post as $field ){
             if( $field === '' ){
-                return 'One or more of your fields was blank.<br>';
+                return true;
             }
         }
 
-        return '';
+        return false;
     }
 
 
