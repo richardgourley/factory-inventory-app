@@ -3,7 +3,7 @@ A web based app written in PHP. It allows the user to manage, add, search for an
 Different users have differnt priveliges and different menus are displayed depending on user priveliges.
 The app allows different users to log in and log out.
 
-##BDD - BEHAVIOUR DRIVEN DEVELOPMENT
+## BDD - BEHAVIOUR DRIVEN DEVELOPMENT
 Note for students:
 If you are learning PHP and MySQL, it is recommended to follow the  file in the tests folder to see the stages and checkpoints in building the app from the ground up.  It will give you an insight into how testing in parts can help you with building apps productively.
 
