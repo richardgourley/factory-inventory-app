@@ -31,6 +31,4 @@ VALUES
 
 /* SET UP USERS - PASSWORDS WILL BE ENCRYPTED BY APP SET UP */
 
-INSERT INTO users(username, pword, priveliges_id) VALUES('mainadmin', 'mA99fBBnDfeT4', '1');
 
-INSERT INTO users(username, pword, priveliges_id) VALUES('user1', 'cBUoo958uFgT7', '2');
