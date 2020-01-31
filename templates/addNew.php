@@ -1,8 +1,9 @@
 <?php require_once( 'header.php' ); ?>
-<?php require_once( ROOT_PATH . 'classes/Model.php'  ); ?>
-<?php require_once( ROOT_PATH . 'classes/DataValidationSanitization.php'  ); ?>
+<?php require_once( './classes/Model.php' ); ?>
+<?php require_once( './classes/DataValidationSanitization.php' ); ?>
 
 <?php
+
 if( isset( $_SESSION['PRIVELIGES'] ) && $_SESSION['PRIVELIGES'] == '2' ){
     header( "Location:" . $_SERVER['DOCUMENT_ROOT'] . '/factoryInventoryApp/index.php' );
 }
@@ -20,9 +21,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['product_number'] ) ){
     $errors = '';
     $post = filter_var_array( $_POST, FILTER_SANITIZE_STRING );
 
-    var_dump( $post['product_name']);
-
-    //blank fields
+    //blank fields check
     if( $input_checks->is_blank_field( $post ) ){
         $errors .= 'One or more of your fields was blank.<br>';
     }
