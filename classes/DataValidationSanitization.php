@@ -44,7 +44,7 @@ class DataValidationSanitization{
     }
     
     /**
-    * returns error message if any field in array is blank
+    * returns error message if ANY field in array is blank
     */
     public function is_blank_field( $post ){
         foreach( $post as $field ){
