@@ -15,6 +15,52 @@ class Model extends DbConnection{
         return $results;
     }
 
+    public function add_user( $post ){
+        $conn = $this->create_connection();
+        $hashed_password = password_hash( $post['password'], PASSWORD_DEFAULT );
+        
+        $query = "INSERT INTO users
+        (username, pword, priveliges_id) 
+        VALUES(?,?,?)";
+        $handle = $conn->prepare( $query );
+        $handle->bindValue( 1, $post['username'] );
+        $handle->bindValue( 2, $hashed_password );
+        $handle->bindValue( 3, $post['priveliges_id'] );
+
+        $result = $handle->execute();
+
+        $conn = null;
+
+        if( $result ){
+            return 'User successfully added.';
+        }else{
+            return 'There was an error, your user was not added. Please try again.';
+        }
+    }
+
+    public function add_first_time_user( $post ){
+        $conn = $this->create_connection();
+        $hashed_password = password_hash( $post['password'], PASSWORD_DEFAULT );
+        
+        $query = "INSERT INTO users
+        (username, pword, priveliges_id) 
+        VALUES(?,?,?)";
+        $handle = $conn->prepare( $query );
+        $handle->bindValue( 1, $post['username'] );
+        $handle->bindValue( 2, $hashed_password );
+        $handle->bindValue( 3, 1 );
+
+        $result = $handle->execute();
+
+        $conn = null;
+
+        if( $result ){
+            return 'User successfully added.';
+        }else{
+            return 'There was an error, your user was not added. Please try again.';
+        }
+    }
+
     public function add_product( $post ){
     	$conn = $this->create_connection();
     	
