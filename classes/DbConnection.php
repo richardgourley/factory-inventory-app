@@ -15,4 +15,14 @@ class DbConnection{
         return $conn;
     }
 
+    public function create_connection_without_db(){
+        $conn = new PDO( 'mysql:host=' . $this->host_name . ';', 
+            $this->user_name,
+            $this->password
+        );
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        return $conn;
+    }
+
 }
