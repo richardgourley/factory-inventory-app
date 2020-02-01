@@ -1,14 +1,14 @@
-<?php require_once( 'header.php' ); ?>
-<?php require_once( ROOT_PATH . 'classes/Model.php'  ); ?>
-<?php require_once( ROOT_PATH . 'classes/DataValidationSanitization.php'  ); ?>
+<?php 
+require_once( 'header.php' ); 
+require_once( 'menu.php' ); 
+require_once( SITEPATH . '/classes/Model.php' );
+require_once( SITEPATH . '/classes/DataValidationSanitization.php' ); 
 
-<?php
+
 if( empty( $_SESSION ) || !isset( $_SESSION['PRIVELIGES'] ) ){
-    header( "Location:" . ROOT_PATH . '/factoryInventoryApp/index.php' );
+    header( "Location:" . SITE_URL . "/index.php" );
 }
-?>
 
-<?php
 $model = new Model();
 $input_checks = new DataValidationSanitization();
 $errors = '';
