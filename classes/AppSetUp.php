@@ -41,7 +41,7 @@ class AppSetUp extends DbConnection{
         }
         
     }
-
+    
     public function setup_database_and_tables(){
         $this->setup_database();
         $this->setup_tables_insert_priveliges();
@@ -88,6 +88,7 @@ class AppSetUp extends DbConnection{
             VALUES
             (1, 'master'),
             (2, 'view_only');
+
         ";
         $handle = $conn->prepare( $query );
         $result = $handle->execute();
