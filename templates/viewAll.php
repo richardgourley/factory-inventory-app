@@ -1,18 +1,16 @@
 <?php require_once( 'header.php' ); ?>
 <?php require_once( 'menu.php' ); ?>
-<?php require_once( $_SERVER['DOCUMENT_ROOT'] . "/factory-inventory-app/classes/Model.php" ); ?>
-
+<?php require_once( SITEPATH . '/classes/Model.php' ); ?>
 
 <?php
 if( empty( $_SESSION ) || !isset( $_SESSION['PRIVELIGES'] ) ){
-    //header( "Location:" . ROOT_PATH . '/factoryInventoryApp/index.php' );
+    header( "Location:" . SITE_URL . "/index.php" );
 }
 ?>
 
 <?php 
 $model = new Model(); 
 $results = $model->view_all();
-var_dump($results);
 ?>
 
 <div class="products-grid">
