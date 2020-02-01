@@ -1,20 +1,17 @@
 <?php require_once( 'header.php' ); ?>
-<?php require_once( ROOT_PATH . 'classes/Model.php' ); ?>
-<?php 
-require_once( 
-	$_SERVER['DOCUMENT_ROOT'] . '/factoryInventoryApp/classes/DataValidationSanitization.php'  
-); 
-?>
+<?php require_once( 'menu.php' ); ?>
+<?php require_once( SITEPATH . '/classes/Model.php' ); ?>
+<?php require_once( SITEPATH . '/classes/DataValidationSanitization.php' ); ?>
 
 
 <?php 
 
 if( isset( $_SESSION['PRIVELIGES'] ) && $_SESSION['PRIVELIGES'] == '2' ){
-    header( "Location:" . $_SERVER['DOCUMENT_ROOT'] . '/factoryInventoryApp/index.php' );
+    header( "Location:" . SITE_URL . "/index.php" );
 }
 
 if( empty( $_SESSION ) || !isset( $_SESSION['PRIVELIGES'] ) ){
-    header( "Location:" . $_SERVER['DOCUMENT_ROOT'] . '/factoryInventoryApp/index.php' );
+    header( "Location:" . SITE_URL . "/index.php" );
 }
 
 ?>
