@@ -2,10 +2,6 @@
 require_once( 'templates/header.php' );
 require_once( 'classes/appSetUp.php' ); 
 
-if( isset( $_SESSION['ERROR_MESSAGE'] ) ){
-    unset( $_SESSION['ERROR_MESSAGE'] );
-}
-
 //create instance of appsetup
 $app_setup = new AppSetUp();
 
