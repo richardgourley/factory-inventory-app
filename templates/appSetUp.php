@@ -1,25 +1,17 @@
-<?php
-require_once( 'header.php' );
-require_once( __DIR__ . "/../classes/AppSetUp.php" );
-require_once( __DIR__ . "/../classes/Model.php" );
-require_once( __DIR__ . "/../classes/DataValidationSanitization.php" );
+<?php 
+require_once( 'header.php' ); 
+require_once( SITEPATH . '/classes/AppSetUp.php' );
+
+//Logic here to send user back to main menu if not first time setup.
+
 $app_setup = new AppSetUp();
-
 $db_exists = $app_setup->check_db_exists();
-
-//check db exists then check if users with privelige 1 exist in db - if so, exit script
 if( $db_exists == true ){
-    if( $app_setup->check_main_admin_exists() == true ){
+    if( $app_setup->check_main_admin_exists() == true){
         require_once( 'menu.php' );
         exit();
     }
 }
-
-//set up db if doesnt exist - first time user of app
-if( $db_exists == false ){
-    $app_setup->setup_database_and_tables();
-}
-
 ?>
 
 <h3>Welcome!</h3>
@@ -27,7 +19,10 @@ if( $db_exists == false ){
 <p>You will have full priveliges to add and edit products and manage users.</p>
 
 <?php
+
 if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['username'] ) ){
+    require_once( SITEPATH . "/classes/Model.php" );
+    require_once( SITEPATH . "/classes/DataValidationSanitization.php" );
     $model = new Model();
     $input_checks = new DataValidationSanitization();
     $errors = '';
@@ -47,11 +42,13 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['username'] ) ){
         echo '<h4>Please review these errors in your form</h4>';
         echo '<p class="error-message">' . $errors . '</p>';
     }else{
-        var_dump($post);
-        //echo $model->add_first_time_user( $post ); //returns 'user added ' or error message
+        echo $model->add_first_time_user( $post ); //returns 'user added ' or error message
+        require_once( 'menu.php' );
+        exit();
     }
 
 }
+
 ?>
 
 <div>
