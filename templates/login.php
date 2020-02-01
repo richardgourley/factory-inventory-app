@@ -1,4 +1,5 @@
 <?php require_once( 'header.php' ); ?>
+<?php require_once( 'menu.php' ); ?>
 
 <?php if( isset( $_SESSION['ERROR_MESSAGE'] ) ): ?>
 <small class="error-message"><?php echo htmlentities( $_SESSION['ERROR_MESSAGE'], ENT_QUOTES ) ?></small>
