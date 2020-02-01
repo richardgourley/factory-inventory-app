@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <?php if( isset( $_SESSION['USERNAME'] ) ): ?>
 <h3>Welcome back <?php echo htmlentities( $_SESSION['USERNAME'], ENT_QUOTES ); ?></h3>
 <?php endif; ?>
