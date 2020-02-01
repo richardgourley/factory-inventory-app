@@ -4,6 +4,8 @@
 <head>
 	<title>Factory Inventory App</title>
 	<?php 
+    session_start();
+
     if($_SERVER['HTTP_HOST'] == "localhost"){
     	//for local
 		define('SITE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/factory-inventory-app');
