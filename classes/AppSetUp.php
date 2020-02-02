@@ -73,7 +73,7 @@ class AppSetUp extends DbConnection{
              product_name VARCHAR(100) NOT NULL,
              product_number INT NOT NULL, 
              description TEXT NOT NULL,
-             cost_price DECIMAL NOT NULL,
+             cost_price DECIMAL(10,2) NOT NULL,
              quantity_in_stock INT NOT NULL,
              PRIMARY KEY(id)
             );
